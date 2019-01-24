@@ -22,7 +22,7 @@ class ContactView(APIView):
 
         return contact
 
-    def filter(self, queryset, query_params):
+    def __filter(self, queryset, query_params):
         email = query_params.get('email', '')
         name = query_params.get('name', '')
         contacts = queryset.filter(email__icontains=email, first_name__icontains=name)
@@ -33,7 +33,7 @@ class ContactView(APIView):
         page_number = request.query_params.get('page', -1)
         page_size = request.query_params.get('size', -1)
 
-        contacts = self.filter(self.queryset, request.query_params)
+        contacts = self.__filter(self.queryset, request.query_params)
         paginator = Paginator(contacts, ContactSerializer, page_size=page_size, page_number=page_number)
 
         response = paginator.data

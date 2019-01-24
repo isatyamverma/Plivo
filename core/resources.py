@@ -60,7 +60,6 @@ class Paginator:
 
     @property
     def data(self):
-
         object_list = self.paginate(self.queryset, self.page_number, self.page_size)
         serializer = self.serializer(object_list, many=True)
 
@@ -73,7 +72,6 @@ class Paginator:
 class FieldValidators:
 
     def __init__(self, value, type):
-        
         self.validate_type = {
             'string': self.validate_text,
             'integer': self.validate_int,
