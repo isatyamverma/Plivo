@@ -9,4 +9,5 @@
    * contactapp/tests.py
    * contactapp/models.py (ORM) <= Tables
    * core/models.py (ORM) <= Tables
+3. ### Please check core/resources.py as most of the logic goes here.
    
